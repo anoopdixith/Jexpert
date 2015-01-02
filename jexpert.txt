@@ -80,12 +80,19 @@ A corollary would be to say that primitives cannot be used as Types in generics.
 ================================================================================================
 
 'Reifiable' objects are the one that have full information during their runtime. 'Non-reifiable' objects don’t.
-Non-reifiable types are types where information has been removed at compile-time by type erasure — invocations of generic types that are not defined as unbounded wildcards. 
-A non-reifiable type does not have all of its information available at runtime. Examples of non-reifiable types are List<String> and List<Number>; the JVM cannot tell the difference between these types at runtime. 
+Non-reifiable types are types where information has been removed at compile-time by type erasure 
+— invocations of generic types that are not defined as unbounded wildcards. 
+A non-reifiable type does not have all of its information available at runtime. 
+Examples of non-reifiable types are List<String> and List<Number>; 
+the JVM cannot tell the difference between these types at runtime. 
 
 ================================================================================================
 
-Java does NOT allow first-class functions. First class functions could be passed as parameters to other functions. For e.g, Javascript does allow that. Also, all functional programming languages like Haskell, Erlang etc allow first-class functions. Even with the inclusion of lambda expressions in Java 8, strictly speaking, there're no first class functions in Java.
+Java does NOT allow first-class functions. 
+First class functions could be passed as parameters to other functions.
+For e.g, Javascript does allow that. 
+Also, all functional programming languages like Haskell, Erlang etc allow first-class functions. 
+Even with the inclusion of lambda expressions in Java 8, strictly speaking, there're no first class functions in Java.
 
 ================================================================================================
 
@@ -96,16 +103,25 @@ Full story and stats here: http://www.precisejava.com/javaperf/j2se/StringAndStr
 
 There IS a thing called 'String Interning' in Java. 
 String interning is a method of storing only one copy of each distinct String value, which must be immutable. 
-Basically doing String.intern() on a series of String objects will ensure that all 'String's having the same content share same memory. So if there is a list of names where 'john' appears 1000 times, by interning we ensure only one 'john' is actually allocated memory. One way to verify String interning is by examining the hashcodes of String objects that have been interned.
+Basically doing String.intern() on a series of String objects will ensure that all 'String's having the same 
+content share same memory. So if there is a list of names where 'john' appears 1000 times, 
+by interning we ensure only one 'john' is actually allocated memory. 
+One way to verify String interning is by examining the hashcodes of String objects that have been interned.
 This is an example of "Flyweight" design pattern.
 
 ================================================================================================
 
-There are NO Static classes in Java. There could however be “static nested/inner” classes. But, if all the methods and variables in a class are static, it’s essentially a static Java class. Example is the Math class.
+There are NO Static classes in Java. 
+There could however be “static nested/inner” classes.
+But, if all the methods and variables in a class are static, it’s essentially a static Java class. 
+Example is the Math class.
 
 ================================================================================================
 
-There IS a limit on the size of HashMap. A HashMap’s maximum capacity is 2 power 30. Infact, HashMap's size will always be a power of 2. On a sidenote, the initial capacity of a HashMap is 16 and load factor is 75% (12).
+There IS a limit on the size of HashMap. 
+A HashMap’s maximum capacity is 2 power 30.
+Infact, HashMap's size will always be a power of 2.
+On a sidenote, the initial capacity of a HashMap is 16 and load factor is 75% (12).
 
 ================================================================================================
 
@@ -152,7 +168,8 @@ The difference would give the size. Generally 16 bytes.
 
 ================================================================================================
 
-I know premature optimizatio is the root of all evil but counting down (i.e. for (int i=n; i>0; i--)) is much much FASTER counting up.
+I know premature optimization is the root of all evil but counting down (i.e. for (int i=n; i>0; i--)) 
+is much FASTER than counting up.
 On my machine, with this program - https://gist.github.com/anoopdixith/74c47a25ca52b9baefcf:
 Time taken by count-up in nanoseconds is 2700251000
 Time taken by count-down in nanoseconds is 6892000
@@ -204,15 +221,19 @@ An example where methods are synchronized on the class object of the class the m
 </code>
 Only one thread can execute inside any of these two methods at the same time.
 
-Had the second synchronized block been synchronized on a different object than MyClass.class, then one thread could execute inside each method at the same time.
+Had the second synchronized block been synchronized on a different object than MyClass.class,
+one thread could execute inside each method at the same time.
 
 ================================================================================================
 (Taken from StackOverflow)
 Arbitrary Number of Arguments:
 
-You can use a construct called 'varargs' to pass an arbitrary number of values to a method. You use varargs when you DON'T know HOW MANY of a particular type of argument will be passed to the method. It's a shortcut to creating an array manually.
+You can use a construct called 'varargs' to pass an arbitrary number of values to a method. 
+You use varargs when you DON'T know HOW MANY of a particular type of argument will be passed to the method.
+It's a shortcut to creating an array manually.
 
-To use varargs, you follow the type of the last parameter by an ellipsis (three dots like this: ...), then a space, and the parameter name. The method can then be called with any number of that parameter, including none.
+To use varargs, you follow the type of the last parameter by an ellipsis (three dots like this: ...),
+then a space, and the parameter name. The method can then be called with any number of that parameter, including none.
 
 public Polygon polygonFrom(Point... corners) {
     int numberOfSides = corners.length;
@@ -226,18 +247,24 @@ public Polygon polygonFrom(Point... corners) {
     // more method body code follows that creates and returns a 
     // polygon connecting the Points
 }
-Note that, inside the method, corners is treated like an array. The method can be called either with an array or with a sequence of arguments. The code in the method body will treat the parameter as an array in either case.
+Note that, inside the method, corners is treated like an array. 
+The method can be called either with an array or with a sequence of arguments. The code in the method body 
+will treat the parameter as an array in either case.
 
 ================================================================================================
 
-In Java, 'Shallow copy' is ( for e.g. when assigning an array to an object’s array) is just pointing references. It is UNSAFE,a change in the array will change the object’s array also.
+In Java, 'Shallow copy' is ( for e.g. when assigning an array to an object’s array) is just pointing references.
+It is UNSAFE,a change in the array will change the object’s array also.
 'Deep copy'ing creates new array in memory altogether. 
-'Lazy copy'ing is a mixture of these two where first, a shallow copy is made but with a counter to check if the data is being shared or not. And when the program wants to modify the data, if it finds that the copy has been shared, then a deep copy is done. 
+'Lazy copy'ing is a mixture of these two where first, a shallow copy is made but with a counter to check if the
+data is being shared or not. And when the program wants to modify the data, if it finds that the copy has been shared,
+then a deep copy is done. 
 Cloning is a shallow copy of the original object. Serializable is deep copy, however.
 
 ================================================================================================
 
-Anonymous class is basically an expression, used when the class is fairly simple with just a method and when we know it’s not going to be reused. It’s concise. 
+Anonymous class is basically an expression, used when the class is fairly simple with just a method and when we know 
+it’s not going to be reused. It’s concise. 
 
 ================================================================================================
 
@@ -246,7 +273,8 @@ An interface is called as a functional interface if it has JUST ONE abstract met
 ================================================================================================
 
 In Java 8, Lambda expressions have been introduced.
-Lambda is extension of Anonymous classes. Lambda expressions enable us to treat 'functionality as method argument', or 'code as data'.
+Lambda is extension of Anonymous classes. Lambda expressions enable us to treat 'functionality as method argument', 
+or 'code as data'.
 
 <code>
   IntegerOp addition = (a,b) -> a+b;
@@ -256,7 +284,8 @@ Lambda is extension of Anonymous classes. Lambda expressions enable us to treat 
   }
 </code>
 
-Inside Lambda, it's not necessary to mention types. Compiler figures it our using “target types”. So, lambda could be used everywhere where target types are known.
+Inside Lambda, it's not necessary to mention types. Compiler figures it our using “target types”. 
+So, lambda could be used everywhere where target types are known.
 
 ================================================================================================
 
@@ -272,7 +301,9 @@ In Java, we can NOT have a synchronized constructor. We can only synchronize the
 ================================================================================================
 
 Regarding the serialization UID:
-The serialization runtime associates with each serializable class a version number, called a serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization.
+The serialization runtime associates with each serializable class a version number, called a serialVersionUID,
+which is used during deserialization to verify that the sender and receiver of a serialized object have loaded
+classes for that object that are compatible with respect to serialization.
 
 <code>
 static final long serialVersionUID = 42L;
@@ -338,8 +369,10 @@ gives the ORIGINAL hash code EVEN if you OVERRIDE the hashCode() method. How abo
 ================================================================================================
 
 In Java, there IS a keyword called 'native'.
-The native keyword is applied to a method to indicate that the method is implemented in native code using JNI. E.g. In hashcode implementation.
-It marks a method that it will be implemented in other languages, not in Java. It works together with JNI (Java Native Interface).
+The native keyword is applied to a method to indicate that the method is implemented in native code using JNI.
+E.g. In hashcode implementation.
+It marks a method that it will be implemented in other languages, not in Java. 
+It works together with JNI (Java Native Interface).
 
 ================================================================================================
 
@@ -354,7 +387,9 @@ But in Java, there IS an interface called ConcurrentHashMap. It’s exactly what
 ================================================================================================
 
 Regarding PermGen:
-The PermGen is where the JVM stores the metadata about classes.  It NO LONGER EXISTS IN Java-8, having been replaced with METASPACE. Generally, PermGen doesn’t require any tuning above ensuring it has enough space, although it is possible to have leaks if Classes are not being unloaded properly.
+The PermGen is where the JVM stores the metadata about classes.  It NO LONGER EXISTS IN Java-8, having been
+replaced with METASPACE. Generally, PermGen doesn’t require any tuning above ensuring it has enough space,
+although it is possible to have leaks if Classes are not being unloaded properly.
 
 ================================================================================================
 
