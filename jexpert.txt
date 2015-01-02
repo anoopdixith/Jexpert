@@ -1,11 +1,18 @@
-Here are some notes on various concepts of Java programming language. They document is NOT well organized and I'm not sure about the intended audience. Nevertheless, I'm just putting down a bunch of stuff related to Java that I've compiled over a span of a year or so. It's a good idea to Google for more information on specific points. Some points below concentrate on some less known things that Java DOES and some focus on things that Java DOESN'T. A couple of explanations have been (obviously) taken from StackOverflow. 
+Here are some notes on various concepts of Java programming language. 
+They document is NOT well organized and I'm not sure about the intended audience. 
+Nevertheless, I'm just putting down a bunch of stuff related to Java that I've compiled over a span of a year or so.
+It's a good idea to Google for more information on specific points. 
+Some points below concentrate on some less known things that Java DOES and some focus on things that Java DOESN'T.
+A couple of explanations have been (obviously) taken from StackOverflow. 
 ================================================================================================
 
-Java is ALWAYS pass-by-value. More here, in this amazing discussion: http://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value
+Java is ALWAYS pass-by-value. More here, in this amazing discussion: 
+http://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value
 
 ================================================================================================
 
-Java DOES allow "static import". It is used when repeatedly accessing one or two static methods of a package. Not recommended to use it often. One example is while accessing methods of java.lang.Math class.
+Java DOES allow "static import". It is used when repeatedly accessing one or two static methods of a package.
+Not recommended to use it often. One example is while accessing methods of java.lang.Math class.
 <code>
 import static java.lang.Math.*;
 </code> and then directly use 
@@ -23,11 +30,15 @@ POJO just means 'Plain Old Java Objects' that should not extend or implement any
 
 ================================================================================================
 
-In simple terms, 'JavaBeans' is a class that encapsulates many objects into a single object and has a 'nullary constructor'. The single object is named 'bean'. They’re reusable software components that allow access to properties using getters and setters.
+In simple terms, 'JavaBeans' is a class that encapsulates many objects into a single object and has a 'nullary constructor'. 
+The single object is named 'bean'. 
+They’re reusable software components that allow access to properties using getters and setters.
 
 ================================================================================================
 
-Java 'assert's are way to do validation. They should be used when absolutely necessary and almost never be used in production code. It is a good practice to not include any actions in assertion statements.
+Java 'assert's are way to do validation. 
+They should be used when absolutely necessary and almost never be used in production code.
+It is a good practice to not include any actions in assertion statements.
 E.g. 
 <code>
 assert someObject != null;"
@@ -36,7 +47,9 @@ This asserts that someObject is not null. If someObject is null, an AssertionErr
 
 ================================================================================================
 
-There IS a keyword in Java called 'strictfp'. It ensures that the JVM evaluates the floating point in the same way on all the platforms. Without this, JVM is free to do its own precision changes.
+There IS a keyword in Java called 'strictfp'. 
+It ensures that the JVM evaluates the floating point in the same way on all the platforms. 
+Without this, JVM is free to do its own precision changes.
 It's used like this:
 <code>
 public strictfp class MyFPclass {
@@ -46,7 +59,8 @@ public strictfp class MyFPclass {
 
 ================================================================================================
 
-This is a lame one but still, it’s perfectly legal but not recommended to use static keyword before public which means <code> 
+This is a lame one but still, it’s perfectly legal but not recommended to use static keyword before public which means
+<code> 
 static public void main(String args[]) {
 }
 </code>
@@ -54,11 +68,14 @@ does work.
 
 ================================================================================================
 
-In simplest terms, 'Autoboxing' and 'Unboxing' just mean casting and un-casting from primitives to classes (int to Integer , char to Char etc)
+In simplest terms, 'Autoboxing' and 'Unboxing' just mean casting and un-casting from primitives to classes 
+i.e (int to Integer , char to Char etc)
 
 ================================================================================================
 
-While compiling, the compiler actually DOES 'Type Erasure' in generics. For e.g., <String> part of ArrayList<String> will be erased. A corollary would be to say that primitives cannot be used as Types in generics. However, the compiler does auto boxing.
+While compiling, the compiler actually DOES 'Type Erasure' in generics. 
+For e.g., <String> part of ArrayList<String> will be erased. 
+A corollary would be to say that primitives cannot be used as Types in generics. However, the compiler does auto boxing.
 
 ================================================================================================
 
