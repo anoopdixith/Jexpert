@@ -17,7 +17,7 @@ instead of
 double r = Math.cos(Math.PI * theta); 
 </code>
 
-================================================================================================
+=================================================================================================
 
 POJO just means 'Plain Old Java Objects' that should not extend or implement any other class or get annotated.
 
