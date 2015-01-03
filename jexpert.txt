@@ -429,4 +429,4 @@ Set<String> sampleSet = new HashSet<String>() {{
 
 ================================================================================================
 
-More to come!
+More to come - Reflection and how JUnit uses it for testing, Java Robots, Interesting stuff about Garbage Collection and more.
