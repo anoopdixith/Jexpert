@@ -429,4 +429,6 @@ Set<String> sampleSet = new HashSet<String>() {{
 
 ================================================================================================
 
-More to come - Duck typing, Reflection and how JUnit uses it for testing, Java Robots, Multiple Inheritance, Interesting stuff about Garbage Collection and more.
+More to come - Duck typing, Reflection and how JUnit uses it for testing, Java Robots, Multiple Inheritance,
+TimSort (Sorting algorithm currently used to sort Arrays in Java SE 7 and on Android), writing own Class Loaders, 
+Interesting stuff about Garbage Collection and more.
