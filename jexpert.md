@@ -16,7 +16,7 @@ http://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-va
 
 Java _does_ allow "static import". It is used when repeatedly accessing
 one or two static methods of a package. Not recommended to use it often.
-One example is while accessing methods of java.lang.Math class:
+One example is while accessing methods of `java.lang.Math` class:
 
 ```java
 import static java.lang.Math.*;
@@ -269,7 +269,7 @@ Only one thread can execute inside any of these two methods at the same
 time.
 
 Had the second synchronized block been synchronized on a different
-object than MyClass.class, one thread could execute inside each method
+object than `MyClass.class`, one thread could execute inside each method
 at the same time.
 
 ---
