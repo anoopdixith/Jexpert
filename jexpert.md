@@ -1,5 +1,5 @@
 Here are some notes on various concepts of Java programming language.
-The document is NOT well organized and I'm not sure about the intended
+The document is _not_ well organized and I'm not sure about the intended
 audience. Nevertheless, I'm just putting down a bunch of stuff related
 to Java that I've compiled over a span of a year or so. It's a good idea
 to Google for more information on specific points. Some points below
@@ -392,7 +392,7 @@ The initial
 public static void main(String args[])
 ```
 
-is NOT loaded by the class loader, rest every class is.
+is _not_ loaded by the class loader, rest every class is.
 
 ```java
 Class r = loadClass(String className, boolean resolveIt);
