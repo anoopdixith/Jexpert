@@ -1,8 +1,9 @@
 Here are some notes on various concepts of Java programming language. 
-They document is NOT well organized and I'm not sure about the intended audience. 
+The document is NOT well organized and I'm not sure about the intended audience. 
 Nevertheless, I'm just putting down a bunch of stuff related to Java that I've compiled over a span of a year or so.
 It's a good idea to Google for more information on specific points. 
-Some points below concentrate on some less known things that Java DOES and some focus on things that Java DOESN'T.
+Some points below concentrate on some lesser known things that Java DOES and some focus on counter-intuitive things
+that Java DOESN'T do.
 A couple of explanations have been (obviously) taken from StackOverflow. 
 ================================================================================================
 
