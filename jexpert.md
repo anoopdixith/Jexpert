@@ -11,6 +11,7 @@ explanations have been (obviously) taken from StackOverflow.
 
 Java is _always_ pass-by-value. More here, in this amazing discussion:
 http://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value
+and also for an example , check >> http://javadude.com/articles/passbyvalue.htm
 
 ---
 
